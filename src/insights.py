@@ -60,22 +60,28 @@ def filter_by_industry(jobs, industry):
     return []
 
 
+def create_max_salaries_list(file):
+    all_max_salaries = set()
+    for job in file:
+        if job["max_salary"] != '':
+            all_max_salaries.add(job["max_salary"])
+    return all_max_salaries
+
+
 def get_max_salary(path):
-    """Get the maximum salary of all jobs
+    read_jobs = read(path)
 
-    Must call `read`
+    all_max_salaries = create_max_salaries_list(read_jobs)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    higher_max_salary = 0
 
-    Returns
-    -------
-    int
-        The maximum salary paid out of all job opportunities
-    """
-    pass
+    for salary in all_max_salaries:
+        # https://www.programiz.com/python-programming/methods/string/isnumeric
+        if salary.isnumeric():
+            salary = int(salary)
+            if salary > higher_max_salary:
+                higher_max_salary = salary
+    return higher_max_salary
 
 
 def get_min_salary(path):
