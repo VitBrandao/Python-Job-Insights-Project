@@ -84,22 +84,27 @@ def get_max_salary(path):
     return higher_max_salary
 
 
+def create_min_salaries_list(file):
+    all_min_salaries = set()
+    for job in file:
+        if job["min_salary"] != '':
+            all_min_salaries.add(job["min_salary"])
+    return all_min_salaries
+
+
 def get_min_salary(path):
-    """Get the minimum salary of all jobs
+    read_jobs = read(path)
 
-    Must call `read`
+    all_min_salaries = create_min_salaries_list(read_jobs)
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
+    lower_min_salary = 1000000
 
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    pass
+    for salary in all_min_salaries:
+        if salary.isnumeric():
+            salary = int(salary)
+            if salary < lower_min_salary:
+                lower_min_salary = salary
+    return lower_min_salary
 
 
 def matches_salary_range(job, salary):
