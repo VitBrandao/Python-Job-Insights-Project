@@ -1,4 +1,4 @@
-from src.counter import count_ocurrences
+from counter import count_ocurrences
 
 
 def test_counter():
