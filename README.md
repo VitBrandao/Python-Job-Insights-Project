@@ -1,3 +1,9 @@
+:warning: :brazil: Nota: o material abaixo é propriedade exclusiva da Trybe, com uso restrito às pessoas estudantes vinculadas à instituição. 
+
+
+:warning: :us: Warn: the following content has all the legal rights reserved to Trybe. Its use is reserved to Trybe students. 
+
+
 # Requisitos Obrigatórios
 
 ## 1 - Implemente a função `read`
